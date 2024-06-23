@@ -1,0 +1,28 @@
+.container-image {
+    border-radius: 0 50px 50px 0;
+    background-color: #167362;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 50%;
+}
+
+.container-image h1 {
+    color: white;
+    font-size: 40px;
+}
+
+.container-image img {
+    width: 400px;
+}
+
+.container-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    width: 50%;
+}
+
