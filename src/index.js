@@ -4,10 +4,27 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import {createBrowserRouter, RouterProvider} from 'react-router-dom';
+import Login from './components/login/Login';
+import Cadastro from './components/cadastro/Cadastro';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element:<Login />
+  },
+
+    {
+    path: "/Cadastro",
+    element: <Cadastro />
+  }
+]);
+
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router}/>
   </React.StrictMode>
 );
 

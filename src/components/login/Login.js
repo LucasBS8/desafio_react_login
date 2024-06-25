@@ -14,7 +14,7 @@ function Login() {
             <button>
                 Entrar
             </button>
-            <button className='button-cadastro' href="#">Cadastrar</button>
+            <button className='button-cadastro'></button>
 
         </div>
     )
