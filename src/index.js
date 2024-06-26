@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import {createBrowserRouter, RouterProvider} from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import App from './App';
 import Login from './components/login/Login';
 import Cadastro from './components/cadastro/Cadastro';
 
@@ -12,11 +12,14 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element:<Login />
+    path: "/App",
+    element: <App />
   },
-
-    {
+  {
+    path: "/Login",
+    element: <Login />
+  },
+  {
     path: "/Cadastro",
     element: <Cadastro />
   }
@@ -24,7 +27,7 @@ const router = createBrowserRouter([
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 

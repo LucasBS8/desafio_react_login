@@ -1,4 +1,6 @@
 import './Login.css';
+import { Link } from 'react-router-dom';
+
 
 function Login() {
     return(
@@ -14,7 +16,7 @@ function Login() {
             <button>
                 Entrar
             </button>
-            <button className='button-cadastro'></button>
+            <button className='button-cadastro'><Link to={"/App/Cadastro"}> Cadastrar</Link></button>
 
         </div>
     )

@@ -27,6 +27,7 @@ button {
     background-color: #167362;
     color: white;
     cursor: pointer;
+    
 }
 
 button:hover {
@@ -52,4 +53,8 @@ a:hover{
 
 .button-cadastro:hover{
     background-color: #0f1315;
+}
+
+.button-cadastro text{
+    color: white;
 }
