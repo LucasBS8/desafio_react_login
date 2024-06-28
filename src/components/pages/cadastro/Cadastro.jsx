@@ -1,6 +1,6 @@
-import '../css/Cadastro_Login.css';
+import '../../css/Cadastro_Login.css';
 import { Link } from 'react-router-dom';
-import TelaInicial from '../layout/telaInicial/TelaInicial';
+import TelaInicial from '../../layout/telaInicial/TelaInicial';
 
 function Cadastro() {
     return (

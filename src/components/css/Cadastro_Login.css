@@ -7,7 +7,31 @@
     width: 300px;
     height: 100%;
 }
+.container-principal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("../../assets/images/fundoAddUser.jpg");
+        background-size: cover;
+        background-position: center;
+}
+.container-editar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("../../assets/images/fundoEditarUser.jpg");
+        background-size: cover;
+        background-position: center;
 
+}
+.container-principal h1{
+    color: white;
+    font-size: 40px;
+    font-weight: bolder;
+    margin: 0;
+}
 .container-input input {
     font-size: medium;
     padding-left: 20px;

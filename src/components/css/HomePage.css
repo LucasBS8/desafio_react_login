@@ -1,4 +1,9 @@
-.container-footer{
+.container-body{
+    padding: 10px;
+
+}
+
+.container-header{
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -8,5 +13,9 @@
 }
 
 .button-novo{
-    width: 130px;
+    gap: 10px;
+    display:flex ;
+    justify-content: center;
+    align-items: center;
+    width: 110px;
 }

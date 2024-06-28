@@ -6,6 +6,8 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    border-top: 1px solid seagreen;
+    border-bottom: 1px solid seagreen;
 }
 
 .container-dados {
@@ -21,8 +23,8 @@
     justify-content: center;
     background-color: seagreen;
     color: white;
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
     border-radius: 100%;
 }
 
@@ -35,10 +37,12 @@
 }
 
 .button-editar {
-    width: 100px;
+    height: 40px;
+    width: 80px;
     background-color: seagreen;
-        color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
 }
+
 .button-editar:hover {
     background-color: darkslategrey;
     color: rgb(255, 255, 255);
@@ -46,10 +50,55 @@
 
 
 .button-excluir {
-    width: 100px;
+    height: 40px;
+    width: 140px;
     background-color: brown;
 }
+
 .button-excluir:hover {
     background-color: rgb(94, 0, 0);
+    color: rgb(255, 255, 255);
+}
+
+.modal {
+    text-align: center;
+    font-size: x-large;
+}
+
+.content {
+    text-align: center;
+    padding: 20px;
+}
+
+.container-button {
+    margin-top: 20px;
+    padding: 20px;
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.button-popup-excluir{
+    height: 50px;
+    width: 140px;
+    background-color: brown;
+}
+
+.button-popup-excluir:hover {
+    background-color: rgb(94, 0, 0);
+    color: rgb(255, 255, 255);
+}
+
+.button-popup-cancelar{
+    height: 50px;
+    width: 140px;
+    background-color: rgb(93, 93, 93);
+    color: rgb(255, 255, 255);
+}
+
+.button-popup-cancelar:hover {
+    background-color: darkslategrey;
     color: rgb(255, 255, 255);
 }

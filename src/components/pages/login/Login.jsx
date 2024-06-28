@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import TelaInicial from '../layout/telaInicial/TelaInicial';
+import TelaInicial from '../../layout/telaInicial/TelaInicial';
 
 function Login() {
     return (
