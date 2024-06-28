@@ -17,17 +17,25 @@
     border: 2px solid #167362;
 }
 
+.div-input{
+    padding: 30px;
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
 button {
     font-weight: bolder;
     font-size: medium;
-    width: 320px;
+    width: 300px;
     height: 50px;
     border-radius: 60px;
     border: none;
     background-color: #167362;
     color: white;
     cursor: pointer;
-    
 }
 
 button:hover {
@@ -54,7 +62,11 @@ a:hover{
 .button-cadastro:hover{
     background-color: #0f1315;
 }
-
-.button-cadastro text{
+.button-cadastro text {
     color: white;
+}
+
+Link {
+    text-decoration: none;
+    color: transparent;
 }

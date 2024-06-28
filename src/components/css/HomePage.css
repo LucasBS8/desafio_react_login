@@ -1,0 +1,12 @@
+.container-footer{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    margin: 20px 0 30px 0;
+}
+
+.button-novo{
+    width: 130px;
+}

@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 .container-image {
     border-radius: 0 50px 50px 0;
     background-color: #167362;
@@ -7,6 +12,14 @@
     align-items: center;
     height: 100%;
     width: 50%;
+
+}
+
+.App {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .container-image h1 {
