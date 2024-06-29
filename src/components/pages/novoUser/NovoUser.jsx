@@ -1,6 +1,7 @@
 import  { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import "../../css/NovoUser.css";
 
 function NovoUser() {
   const [formData, setFormData] = useState({ nome: "", email: "", senha: "" });
@@ -23,7 +24,7 @@ function NovoUser() {
         email,
         senha,
       });
-      setMessage("Usuário cadastrado com sucesso!");
+      navigator.navigate("/HomePage");
     } catch (error) {
       console.error("Error inserting user:", error);
       setMessage(
@@ -69,7 +70,7 @@ function NovoUser() {
         <Link to="/HomePage">
           <button className="button-cadastro">Voltar</button>
         </Link>
-        {message && <p>{message}</p>}
+        {message && <p className="messagem-erro">{message}</p>}
       </form>
     </div>
   );

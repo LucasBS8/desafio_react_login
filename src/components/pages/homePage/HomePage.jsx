@@ -18,9 +18,13 @@ const HomePage = () => {
         </Link>
       </div>
 
-      <div>
+      <div className="lista-container">
         <h1>Usuários</h1>
         <Lista />
+      </div>
+
+      <div className="container-button">
+        <button className="button-logout">Logout</button>
       </div>
     </div>
   );

@@ -23,9 +23,10 @@ const Lista = () => {
 
   return (
     <ul>
-      {usuarios.map((usuario) => (
-        <li key={usuario.id}>
+      {usuarios.map((usuario, index) => (
+        <li key={index}>
           <UserLine
+          index={index + 1}
             id={usuario.id}
             nome={usuario.nome}
             email={usuario.email}

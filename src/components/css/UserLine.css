@@ -51,7 +51,7 @@
 
 .button-excluir {
     height: 40px;
-    width: 140px;
+    width: 80px;
     background-color: brown;
 }
 
@@ -71,7 +71,7 @@
 }
 
 .container-button {
-    margin-top: 20px;
+    margin: 20px;
     padding: 20px;
     display: flex;
     gap: 10px;
@@ -82,7 +82,7 @@
 
 .button-popup-excluir{
     height: 50px;
-    width: 140px;
+    width: 80px;
     background-color: brown;
 }
 
@@ -101,4 +101,14 @@
 .button-popup-cancelar:hover {
     background-color: darkslategrey;
     color: rgb(255, 255, 255);
+}
+li{
+    list-style-type: none;
+}
+.container-valor, .container-valor-id{
+    padding-left:20px ;
+    width: 135px;
+}
+.container-valor-id{
+    width: 20px;
 }
