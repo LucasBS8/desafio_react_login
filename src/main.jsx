@@ -1,13 +1,11 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-
+import React from "react";
+import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./components/pages/login/Login";
 import Cadastro from "./components/pages/cadastro/Cadastro";
 import HomePage from "./components/pages/homePage/HomePage";
-import NovoUser from './components/pages/novoUser/NovoUser';
-import EditarUser from './components/pages/editarUser/EditarUser';
-
+import NovoUser from "./components/pages/novoUser/NovoUser";
+import EditarUser from "./components/pages/editarUser/EditarUser";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +32,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <RouterProvider router={router} />
   </React.StrictMode>
 );

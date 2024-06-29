@@ -1,78 +1,88 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const sqlite3 = require('sqlite3').verbose();
+import express from 'express';
+import sqlite3 from 'sqlite3';
+import bodyParser from 'body-parser';
+import cors from 'cors';
 
 const app = express();
-const db = new sqlite3.Database('login.db', (err) => {
-    if (err) {
-        console.error(err.message);
-    } else {
-        console.log('Conexão estabelecida com sucesso.');
-        db.run(`CREATE TABLE IF NOT EXISTS Usuarios (
-            UsuarioID INTEGER PRIMARY KEY AUTOINCREMENT,
-            Nome TEXT,
-            Email TEXT,
-            Senha TEXT
-        )`);
-    }
-});
+const port = 3001;
 
+app.use(cors());
 app.use(bodyParser.json());
 
+// Conecte ao banco de dados SQLite
+const db = new sqlite3.Database(':memory:');
+
+db.serialize(() => {
+    db.run(`
+    CREATE TABLE IF NOT EXISTS Usuario (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      nome TEXT,
+      email TEXT,
+      senha TEXT
+    );
+  `);
+    console.log("Table Usuario created");
+});
+
+// Endpoint para obter todos os usuários
 app.get('/usuarios', (req, res) => {
-    db.all('SELECT * FROM Usuarios', (err, rows) => {
+    db.all('SELECT * FROM Usuario', [], (err, rows) => {
         if (err) {
-            res.status(500).json({ error: err.message });
+            res.status(400).json({ error: err.message });
             return;
         }
         res.json({ data: rows });
     });
 });
 
+// Endpoint para procurar um usuário pelo email e senha
+app.post('/login', (req, res) => {
+    const { email, senha } = req.body;
+    db.get('SELECT * FROM Usuario WHERE email = ? AND senha = ?', [email, senha], (err, row) => {
+        if (err) {
+            res.status(400).json({ error: err.message });
+            return;
+        }
+        if (row) {
+            res.json({ data: row });
+        } else {
+            res.status(401).json({ error: 'Credenciais inválidas' });
+        }
+    });
+});
+
+// Endpoint para adicionar um usuário
 app.post('/usuarios', (req, res) => {
-    const { Nome, Email, Senha } = req.body;
-    db.run(`INSERT INTO Usuarios (Nome, Email, Senha) VALUES (?, ?, ?)`,
-        [Nome, Email, Senha],
-        function (err) {
-            if (err) {
-                res.status(400).json({ error: err.message });
-                return;
-            }
-            res.json({
-                message: 'Dados inseridos com sucesso',
-                data: { UsuarioID: this.lastID, Nome, Email, Senha }
-            });
-        });
+    const { nome, email, senha } = req.body;
+    db.run('INSERT INTO Usuario (nome, email, senha) VALUES (?, ?, ?)', [nome, email, senha], function (err) {
+        if (err) {
+            res.status(400).json({ error: err.message });
+            return;
+        }
+        res.json({ id: this.lastID });
+    });
 });
-
-app.put('/usuarios/:id', (req, res) => {
-    const { Nome, Email, Senha } = req.body;
-    const { id } = req.params;
-    db.run(`UPDATE Usuarios SET Nome = ?, Email = ?, Senha = ? WHERE UsuarioID = ?`,
-        [Nome, Email, Senha, id],
-        function (err) {
-            if (err) {
-                res.status(400).json({ error: err.message });
-                return;
-            }
-            res.json({ message: 'Dados modificados com sucesso', data: { UsuarioID: id, Nome, Email, Senha } });
-        });
-});
-
+// Endpoint para deletar um usuário pelo ID
 app.delete('/usuarios/:id', (req, res) => {
     const { id } = req.params;
-    db.run(`DELETE FROM Usuarios WHERE UsuarioID = ?`,
-        id,
-        function (err) {
-            if (err) {
-                res.status(400).json({ error: err.message });
-                return;
-            }
-            res.json({ message: 'Dados excluídos com sucesso', data: { UsuarioID: id } });
-        });
+    db.run('DELETE FROM Usuario WHERE id = ?', id, function (err) {
+        if (err) {
+            res.status(400).json({ error: err.message });
+            return;
+        }
+        res.json({ message: `Usuário com ID ${id} deletado com sucesso.` });
+
+        window.location.reload();
+    });
 });
 
-const PORT = 3000;
-app.listen(PORT, () => {
-    console.log(`Servidor escutando na porta ${PORT}`);
+
+
+// Rota básica para o endpoint raiz
+app.get('/', (req, res) => {
+    res.send('Servidor Express está rodando.');
+});
+
+app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
 });

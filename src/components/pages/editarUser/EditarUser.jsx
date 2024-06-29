@@ -1,6 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
+import { useLocation } from "react-router-dom";
+
 
 function EditarUser() {
+  const location = useLocation();
+  const usuario = location.state?.usuario;
+  
     return (
       <div className="container-principal">
         <div className="container-form-login">
@@ -17,8 +22,8 @@ function EditarUser() {
             </div>
           </div>
           <button>Salvar</button>
-          <Link to="/HomePage">
-            <button className="button-cadastro">Voltar</button>
+          <Link to="/HomePage" onclick="history.back()">
+            <button  className="button-cadastro">Voltar</button>
           </Link>
         </div>
       </div>
