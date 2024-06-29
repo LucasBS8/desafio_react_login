@@ -24,8 +24,8 @@ function Login() {
         email,
         senha,
       });
-      const usuario = response.data;
-      navigate("/HomePage", { state: { usuario } });
+      localStorage.setItem("usuario", JSON.stringify(response.data));
+      navigate("/HomePage");
     } catch (error) {
       setMessage("Credenciais inválidas. Verifique seu e-mail e senha.");
     }

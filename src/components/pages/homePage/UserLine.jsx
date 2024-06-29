@@ -4,32 +4,28 @@ import "reactjs-popup/dist/index.css";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 
-
 function UserLine({ id, nome, email, senha }) {
-const navigate = useNavigate();
-const handleEditar = async () => {
-    const usuario = {
-      id: id,
-      nome: nome,
-      email: email,
-      senha: senha,
-    };
-      navigate("/HomePage", { state: { usuario } });
-      console.log(usuario);
-}
+  const navigate = useNavigate();
+
+  const handleEditar = () => {
+    const usuario = { id, nome, email, senha };
+    navigate("/EditarUser", { state: { usuario } });
+  };
 
   const handleDelete = async () => {
     try {
-      await fetch(`http://localhost:3001/usuarios/${id}`, {
+      const response = await fetch(`http://localhost:3001/usuarios/${id}`, {
         method: "DELETE",
       });
-      window.location.reload();
+      if (response.ok) {
+        window.location.reload();
+      } else {
+        console.error("Erro ao excluir usuário");
+      }
     } catch (error) {
       console.error("Erro ao excluir usuário: ", error);
     }
   };
-
-
 
   return (
     <div className="container-line">
@@ -40,7 +36,9 @@ const handleEditar = async () => {
         <div>{senha}</div>
       </div>
       <div className="container-buttons">
-          <button onClick={() => handleEditar()} className="button-editar">Editar</button>
+        <button onClick={handleEditar} className="button-editar">
+          Editar
+        </button>
 
         <Popup
           trigger={<button className="button-excluir">Excluir</button>}
@@ -78,10 +76,12 @@ const handleEditar = async () => {
     </div>
   );
 }
+
 UserLine.propTypes = {
   id: PropTypes.number.isRequired,
   nome: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   senha: PropTypes.string.isRequired,
 };
+
 export default UserLine;
