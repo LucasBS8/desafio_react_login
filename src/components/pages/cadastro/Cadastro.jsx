@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import "../../css/Cadastro_Login.css"; // Ajuste o caminho conforme necessário
-import TelaInicial from "../../layout/telaInicial/TelaInicial"; // Ajuste o caminho conforme necessário
+import "../../css/Cadastro_Login.css";
+import TelaInicial from "../../layout/telaInicial/TelaInicial";
 
 function Cadastro() {
 
