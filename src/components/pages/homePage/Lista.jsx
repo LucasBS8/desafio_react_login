@@ -23,10 +23,17 @@ const Lista = () => {
 
   return (
     <ul>
+      <div className="container-dados">
+        <div className="container-id">ID</div>
+        <div className="container-valor-id">ID</div>
+        <div className="container-valor">Nome</div>
+        <div className="container-valor">Email</div>
+        <div className="container-valor">Senha</div>
+      </div>
       {usuarios.map((usuario, index) => (
         <li key={index}>
           <UserLine
-          index={index + 1}
+            index={index + 1}
             id={usuario.id}
             nome={usuario.nome}
             email={usuario.email}

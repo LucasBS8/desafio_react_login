@@ -7,6 +7,11 @@ import Lista from "./Lista.jsx";
 const HomePage = () => {
   const usuarioString = localStorage.getItem("usuario");
   const usuarioObj = JSON.parse(usuarioString);
+
+  const handleLogout = async () => {
+    localStorage.removeItem("usuario");
+
+  }
   return (
     <div className="container-body">
       <div className="container-header">
@@ -24,7 +29,11 @@ const HomePage = () => {
       </div>
 
       <div className="container-button">
-        <button className="button-logout">Logout</button>
+        <Link to={"/"}>
+          <button onClick={handleLogout} className="button-logout">
+            Logout
+          </button>
+        </Link>
       </div>
     </div>
   );
