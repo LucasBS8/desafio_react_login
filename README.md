@@ -20,7 +20,7 @@ Para iniciar o sistema React + Vite, siga estes passos:
     ```
     Isso irá iniciar o sistema React + Vite e fornecer um servidor de desenvolvimento local.
 
-Além disso, se você precisar iniciar o banco de dados, execute o seguinte comando em um terminal separado:
+Além disso, você precisa iniciar o banco de dados, execute o seguinte comando em um terminal separado:
 ```
 node .\src\database\Server.js
 ```
